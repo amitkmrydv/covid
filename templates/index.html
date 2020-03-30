@@ -1,18 +1,96 @@
-  
 <!DOCTYPE html>
-<html>
-
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
+  <meta charset="UTF-8">
+  <title>COVID</title>
+  <style>
+html {
+    min-height: 100%;
+}
 
-    <meta charset="UTF-8">
-    <title>COVID19 prediction</title>
-     <link rel="stylesheet" href="covid.css">
+body {
+    background: -webkit-linear-gradient(left, #93B874, #C9DCB9); 
+    background: -o-linear-gradient(right, #93B874, #C9DCB9); 
+    background: -moz-linear-gradient(right, #93B874, #C9DCB9); 
+    background: linear-gradient(to right, #93B874, #C9DCB9); 
+    background-color: #93B874; 
+}
+
+
+.login
+{
+    background-image: url("download4.jpg");
+background-repeat: no-repeat;
+background-size:cover;
+margin-left: 0px;
+    margin-right: 0px;
+}
+h1
+{
+    margin:0;
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 2px 3px grey;        
+}
+.but
+{
+    text-align: center;
+    font-size: 40px;
+}
+.image
+{
+    display:block;
+    height:200px;
+    width: auto;
+ border:4px dashed grey;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aqua;
+}
+.formde
+{
+margin-left: 20%;
+    
+}
+form h2
+{
+    color: #fff;
+    font-size: 30px;
+}
+input[type="text"]
+{
+    font-size: 20px;
+    min-width: 400px;
+    width: 100px;
+    border:2px solid grey;
+    border-radius: 20px; 
+    padding: 10px;
+}
+form h3
+{
+    color: #fff;
+    font-size: 20px;
+}
+h4
+{
+    text-align: center;
+    color: aquamarine;
+    font-size: 35px;
+        
+}
+</style>
+  
 </head>
+
 <body>
-    <div class="login">
-        <h1> Predictor</h1>
-        <div class="formde">
-     <form action="{{ url_for('predict')}}"method="post">
+	<center>
+ <div class="login">
+	<h1>Predictor</h1>
+	<div class="formade">
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
     	<input type="text" name="age" placeholder="Age" required="required" /><br>
     	Enter 1 for female and 0 for male<br>
         <input type="text" name="gender" placeholder="Gender" required="required" />
@@ -22,43 +100,44 @@
 		<input type="text" name="d" placeholder="Difficulty in breathing" required="required" /><br>
 		<input type="text" name="s" placeholder="Sneezing" required="required" /><br>
 		<input type="text" name="t" placeholder="Time of first occurence" required="required" /><br>
-              <div class="but">
-			        <button type="submit"> Predict
-                   </button> 
-            </div>
-			</form>
-		</div>
-		 <br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
    <br>
    {{ prediction_text }}
    <br>
    <br>
-        </div>
+
+</div>
+
+ </div>
+</center>
+ <div>
+    <img src="download1.jpeg"  width="500px" height="200px"class="image">
+ </div>
                  
         
-                <h4><b>Basic protective measures against the new coronavirus</h3></b>
-                                 <p>
+ <h4><b>Basic protective measures against the new coronavirus</h3></b>
+<p>
 Stay aware of the latest information on the COVID-19 outbreak, available on the WHO website and through your national and local public health authority. Most people who become infected experience mild illness and recover, but it can be more severe for others. Take care of your health and protect others by doing the following:
-                                     </p>
+ </p>
                                     
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/bPITHEiFWLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bPITHEiFWLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<ol>
             <li><b>Wash your hands frequently</b></li>
-    <ul>
-    <li>
+<ul>
+<li>
 Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.
         Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.</li>
-        </ul>
-            <li><b>Maintain social distancing</b></li> 
+</ul><li><b>Maintain social distancing</b></li> 
      
 <ul><li>Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.
 Why? When someone coughs or sneezes they spray small liquid droplets from their nose or mouth which may contain virus. If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person coughing has the disease.   </li></ul>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/6Ooz1GZsQ70" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
-        
-        
-      
-        <li><b>Avoid touching eyes, nose and mouth</b></li>
+<li><b>Avoid touching eyes, nose and mouth</b></li>
 <ul><li>Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth. From there, the virus can enter your body and can make you sick.</li></ul>
 
 <li><b>Practice respiratory hygiene</b></li>
@@ -76,14 +155,18 @@ Why? National and local authorities will have the most up to date information on
         <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"><h4>Check this link for More Information</h4></a>
 
         
-      
+        <img src="download6.jpeg"  width="500px" height="200px"
+        class="image">
         
         <h4>
-        Stay At Home!<br
+        Stay At Home!<br>
             Don't Panic <br>
              Take the Precautions<br>
             Keep Calm <br>
         </h4>
 		</div>
-		</body>
-	</html>
+
+
+
+</body>
+</html>
